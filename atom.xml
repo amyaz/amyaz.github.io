@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2018-04-29T13:44:34.476Z</updated>
+  <updated>2018-05-04T02:29:25.803Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenMediaVault 插件之 TransmissionBT 下载</title>
+    <link href="https://amyaz.gitee.io/posts/2018-05-04-omv-bt.html"/>
+    <id>https://amyaz.gitee.io/posts/2018-05-04-omv-bt.html</id>
+    <published>2018-05-04T02:27:49.000Z</published>
+    <updated>2018-05-04T02:29:25.803Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一台 NAS ，下载功能必不可少。OMV-Extras 提供了 TransmissionBT 插件，实现 BT/PT 下载。</p><p>首先，在插件中心安装 openmediavault-transmissionbt 插件。</p><img src="/posts/2018-05-04-omv-bt/20180504101840020_26790.jpg"><p>将共享文件夹 Downloads 作为下载目录。设置 ACL 权限，保证 <code>debian-transmissin</code> 拥有读写权限。</p><a id="more"></a><img src="/posts/2018-05-04-omv-bt/20180504101858599_170.jpg"><p>设置下载保存到 Downloads 。</p><img src="/posts/2018-05-04-omv-bt/20180504101927127_1098.jpg"><p>启用 BitTorrent 下载。</p><img src="/posts/2018-05-04-omv-bt/20180504101957786_6489.jpg"><p>启用 web 管理。</p><img src="/posts/2018-05-04-omv-bt/20180504102023641_15106.jpg"><p>点 <em>Show</em> 打开 Transmission 网页管理界面。</p><img src="/posts/2018-05-04-omv-bt/20180504102102488_27025.jpg"><p>但这个界面不太友好，下面使用 transmission-web-control 美化默认的 WEB 界面。</p><p>安装 openmediavault-shellinbox 并启用。</p><img src="/posts/2018-05-04-omv-bt/20180504102112723_40471.jpg"><img src="/posts/2018-05-04-omv-bt/20180504102122600_18372.jpg"><p>点 <em>Web 客户端</em> 登陆 SSH，再按 <a href="https://github.com/ronggang/transmission-web-control/wiki/Linux-Installation-CN" target="_blank" rel="noopener">wiki</a> 操作即可。</p><img src="/posts/2018-05-04-omv-bt/20180504102133164_20133.jpg"><p>下面就是美化后的界面，是不是亲切了许多？</p><img src="/posts/2018-05-04-omv-bt/20180504102139525_16516.jpg">]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一台 NAS ，下载功能必不可少。OMV-Extras 提供了 TransmissionBT 插件，实现 BT/PT 下载。&lt;/p&gt;
+&lt;p&gt;首先，在插件中心安装 openmediavault-transmissionbt 插件。&lt;/p&gt;
+&lt;img src=&quot;/posts/2018-05-04-omv-bt/20180504101840020_26790.jpg&quot;&gt;
+
+&lt;p&gt;将共享文件夹 Downloads 作为下载目录。设置 ACL 权限，保证 &lt;code&gt;debian-transmissin&lt;/code&gt; 拥有读写权限。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OMV插件" scheme="https://amyaz.gitee.io/tags/OMV%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="BT下载" scheme="https://amyaz.gitee.io/tags/BT%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 OpenMediaVault 轻松搭建家用 NAS</title>
