@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2018-05-04T02:29:25.803Z</updated>
+  <updated>2018-05-26T11:40:24.143Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenMediaVault 插件之 CUPS 打印服务</title>
+    <link href="https://amyaz.gitee.io/posts/2018-05-26-omv-cups.html"/>
+    <id>https://amyaz.gitee.io/posts/2018-05-26-omv-cups.html</id>
+    <published>2018-05-26T11:39:03.000Z</published>
+    <updated>2018-05-26T11:40:24.143Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你手头有台打印机需要使用，而又不想一直开着电脑，这时将打印机接入 NAS 实现局域网打印是个不错的主意。</p><p>我手头有台联想 LJ2200L ，经搜索得知，它与兄弟 HL-2140 的驱动通用。</p><p>首先到 <a href="http://www.openprinting.org/printers" target="_blank" rel="noopener">http://www.openprinting.org/printers</a> 查看你的打印机型号支持情况：</p><ul><li>Perfectly：完全支持 linux 下打印，并且可以使用打印机所有功能和打印分辨率</li><li>Mostly：大部分功能支持 linux 下打印，有一些小缺陷</li><li>Partially：只有部分功能支持 linux 下打印</li></ul><img src="/posts/2018-05-26-omv-cups/20180526192548174_5635.jpg"><p>安装 openmediavault-cups 插件。</p><a id="more"></a><img src="/posts/2018-05-26-omv-cups/20180526192605047_11342.jpg"><p>启用打印机服务。</p><img src="/posts/2018-05-26-omv-cups/20180526192624068_22727.jpg"><p>将打印机接入 NAS ，添加打印机。</p><img src="/posts/2018-05-26-omv-cups/20180526192913788_5982.jpg"><p>如果显示错误，表示打印机不在列表中，可以使用高级管理（Advanced management）添加。</p><img src="/posts/2018-05-26-omv-cups/20180526192947487_26640.jpg"><p>选择本地打印机。</p><img src="/posts/2018-05-26-omv-cups/20180526193005723_30794.jpg"><img src="/posts/2018-05-26-omv-cups/20180526193028010_6416.jpg"><p>继续下一步，选择打印机品牌型号。</p><img src="/posts/2018-05-26-omv-cups/20180526193118152_816.jpg"><p>打印设置，默认。</p><img src="/posts/2018-05-26-omv-cups/20180526193228569_28632.jpg"><p>添加成功，打印测试页。</p><img src="/posts/2018-05-26-omv-cups/20180526193319117_25930.jpg"><p>局域网电脑查看共享，可以使用该打印机。</p><img src="/posts/2018-05-26-omv-cups/20180526193339066_22297.jpg">]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你手头有台打印机需要使用，而又不想一直开着电脑，这时将打印机接入 NAS 实现局域网打印是个不错的主意。&lt;/p&gt;
+&lt;p&gt;我手头有台联想 LJ2200L ，经搜索得知，它与兄弟 HL-2140 的驱动通用。&lt;/p&gt;
+&lt;p&gt;首先到 &lt;a href=&quot;http://www.openprinting.org/printers&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.openprinting.org/printers&lt;/a&gt; 查看你的打印机型号支持情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Perfectly：完全支持 linux 下打印，并且可以使用打印机所有功能和打印分辨率&lt;/li&gt;
+&lt;li&gt;Mostly：大部分功能支持 linux 下打印，有一些小缺陷&lt;/li&gt;
+&lt;li&gt;Partially：只有部分功能支持 linux 下打印&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&quot;/posts/2018-05-26-omv-cups/20180526192548174_5635.jpg&quot;&gt;
+
+&lt;p&gt;安装 openmediavault-cups 插件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OMV插件" scheme="https://amyaz.gitee.io/tags/OMV%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="Linux打印" scheme="https://amyaz.gitee.io/tags/Linux%E6%89%93%E5%8D%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenMediaVault 插件之 TransmissionBT 下载</title>
