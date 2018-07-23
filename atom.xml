@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2018-05-26T11:40:24.143Z</updated>
+  <updated>2018-07-23T06:49:03.063Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenMediaVault 插件之 Nginx、MySQL 搭建网页服务器</title>
+    <link href="https://amyaz.gitee.io/posts/2018-07-23-omv-lemp.html"/>
+    <id>https://amyaz.gitee.io/posts/2018-07-23-omv-lemp.html</id>
+    <published>2018-07-23T06:44:46.000Z</published>
+    <updated>2018-07-23T06:49:03.063Z</updated>
+    
+    <content type="html"><![CDATA[<p>OMV 以其丰富的插件而受到人们的青睐，尤其是 OMV-Extras.org 增加了很多 OMV 原本没有的插件，极大地提高了 OMV 的可玩性。今天将简单介绍如何使用 openmediavault-mysql、openmediavault-nginx 这两个插件来搭建网页服务器。</p><p>首先，在 OMV 的插件中心安装这两个插件。</p><img src="/posts/2018-07-23-omv-lemp/20180723143609972_24616.jpg"><p>添加 php-fpm 池，用已添加的用户 <code>amyaz</code> 管理网络连接。</p><a id="more"></a><img src="/posts/2018-07-23-omv-lemp/20180723143645121_2726.jpg"><p>添加共享文件夹 <code>www</code>，用于存放网站文件。</p><img src="/posts/2018-07-23-omv-lemp/20180723143710516_29998.jpg"><p><code>80</code> 端口已经被 OMV 占用，需要修改。</p><img src="/posts/2018-07-23-omv-lemp/20180723143725660_21722.jpg"><p>选择上面添加 php-fpm 池 <code>www</code>。</p><img src="/posts/2018-07-23-omv-lemp/20180723143744175_9556.jpg"><p>启用 Nginx 服务。</p><img src="/posts/2018-07-23-omv-lemp/20180723143804252_22796.jpg"><p>将 <code>www</code> 文件夹加入到 SMB 共享。</p><img src="/posts/2018-07-23-omv-lemp/20180723143828597_19685.jpg"><p>Windows 下用之前添加的用户 <code>amyaz</code> 登陆网络中的 SMB ，在 <code>www</code> 文件夹中新建 index.php ，内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure><p>打开 <a href="http://192.168.1.110:81" target="_blank" rel="noopener">http://192.168.1.110:81</a> ，即可查看 php 信息，网页服务器正常运行。（<strong>成功后记得将 index.php 删除，以免泄露服务器信息。</strong>）</p><p>启用 MySQL 。</p><img src="/posts/2018-07-23-omv-lemp/20180723143943487_7414.jpg"><p>点 <em>重设密码</em> 设置 MySQL 密码。</p><img src="/posts/2018-07-23-omv-lemp/20180723144012762_14787.jpg"><p>点 <em>显示</em> 打开 MySQL 管理页面，现在可以登陆管理数据库。</p><img src="/posts/2018-07-23-omv-lemp/20180723144128106_7036.jpg">]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;OMV 以其丰富的插件而受到人们的青睐，尤其是 OMV-Extras.org 增加了很多 OMV 原本没有的插件，极大地提高了 OMV 的可玩性。今天将简单介绍如何使用 openmediavault-mysql、openmediavault-nginx 这两个插件来搭建网页服务器。&lt;/p&gt;
+&lt;p&gt;首先，在 OMV 的插件中心安装这两个插件。&lt;/p&gt;
+&lt;img src=&quot;/posts/2018-07-23-omv-lemp/20180723143609972_24616.jpg&quot;&gt;
+
+&lt;p&gt;添加 php-fpm 池，用已添加的用户 &lt;code&gt;amyaz&lt;/code&gt; 管理网络连接。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OMV插件" scheme="https://amyaz.gitee.io/tags/OMV%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="Nginx" scheme="https://amyaz.gitee.io/tags/Nginx/"/>
+    
+      <category term="MySQL" scheme="https://amyaz.gitee.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenMediaVault 插件之 CUPS 打印服务</title>
