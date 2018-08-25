@@ -6,31 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://amyaz.gitee.io">
-  <title>OpenMediaVault 插件之 TransmissionBT 下载 | Amyaz的博客</title>
+  <title>OpenMediaVault 插件之 VirtualBox 虚拟机 | Amyaz的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作为一台 NAS ，下载功能必不可少。OMV-Extras 提供了 TransmissionBT 插件，实现 BT/PT 下载。 首先，在插件中心安装 openmediavault-transmissionbt 插件。   将共享文件夹 Downloads 作为下载目录。设置 ACL 权限，保证 debian-transmissin 拥有读写权限。">
-<meta name="keywords" content="OMV插件,BT下载">
+  <meta name="description" content="VirtualBox 是一款开源虚拟机软件。它不仅具有丰富的特色，而且性能也很优异！它简单易用，可虚拟的系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2 甚至 Android 等操作系统！与同性质的 VMware 及 Virtual PC 比较，VirtualBox 具有功能全、效率高、体积小、资源占用低等优点。  OMV-Extras 提供">
+<meta name="keywords" content="OMV插件,VirtualBox">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenMediaVault 插件之 TransmissionBT 下载">
-<meta property="og:url" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt.html">
+<meta property="og:title" content="OpenMediaVault 插件之 VirtualBox 虚拟机">
+<meta property="og:url" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox.html">
 <meta property="og:site_name" content="Amyaz的博客">
-<meta property="og:description" content="作为一台 NAS ，下载功能必不可少。OMV-Extras 提供了 TransmissionBT 插件，实现 BT/PT 下载。 首先，在插件中心安装 openmediavault-transmissionbt 插件。   将共享文件夹 Downloads 作为下载目录。设置 ACL 权限，保证 debian-transmissin 拥有读写权限。">
+<meta property="og:description" content="VirtualBox 是一款开源虚拟机软件。它不仅具有丰富的特色，而且性能也很优异！它简单易用，可虚拟的系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2 甚至 Android 等操作系统！与同性质的 VMware 及 Virtual PC 比较，VirtualBox 具有功能全、效率高、体积小、资源占用低等优点。  OMV-Extras 提供">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504101840020_26790.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504101858599_170.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504101927127_1098.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504101957786_6489.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504102023641_15106.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504102102488_27025.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504102112723_40471.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504102122600_18372.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504102133164_20133.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504102139525_16516.jpg">
-<meta property="og:updated_time" content="2018-05-04T02:29:25.803Z">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205217092_25134.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205316304_10085.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205404592_22920.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205506681_5189.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205544291_31540.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205614356_2252.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205626312_258.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205649704_31150.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205703120_31981.png">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205717748_31273.jpg">
+<meta property="og:updated_time" content="2018-08-25T13:05:25.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenMediaVault 插件之 TransmissionBT 下载">
-<meta name="twitter:description" content="作为一台 NAS ，下载功能必不可少。OMV-Extras 提供了 TransmissionBT 插件，实现 BT/PT 下载。 首先，在插件中心安装 openmediavault-transmissionbt 插件。   将共享文件夹 Downloads 作为下载目录。设置 ACL 权限，保证 debian-transmissin 拥有读写权限。">
-<meta name="twitter:image" content="https://amyaz.gitee.io/posts/2018-05-04-omv-bt/20180504101840020_26790.jpg">
+<meta name="twitter:title" content="OpenMediaVault 插件之 VirtualBox 虚拟机">
+<meta name="twitter:description" content="VirtualBox 是一款开源虚拟机软件。它不仅具有丰富的特色，而且性能也很优异！它简单易用，可虚拟的系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2 甚至 Android 等操作系统！与同性质的 VMware 及 Virtual PC 比较，VirtualBox 具有功能全、效率高、体积小、资源占用低等优点。  OMV-Extras 提供">
+<meta name="twitter:image" content="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox/20180825205217092_25134.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Amyaz的博客" type="application/atom+xml">
   
@@ -162,58 +162,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-omv-bt" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-omv-virtualbox" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      OpenMediaVault 插件之 TransmissionBT 下载
+      OpenMediaVault 插件之 VirtualBox 虚拟机
     </h1>
   
 
         
-        <a href="/posts/2018-05-04-omv-bt.html" class="archive-article-date">
-  	<time datetime="2018-05-04T02:27:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
+        <a href="/posts/2018-08-25-omv-virtualbox.html" class="archive-article-date">
+  	<time datetime="2018-08-25T13:04:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>作为一台 NAS ，下载功能必不可少。OMV-Extras 提供了 TransmissionBT 插件，实现 BT/PT 下载。</p>
-<p>首先，在插件中心安装 openmediavault-transmissionbt 插件。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504101840020_26790.jpg">
+        <blockquote>
+<p>VirtualBox 是一款开源虚拟机软件。它不仅具有丰富的特色，而且性能也很优异！它简单易用，可虚拟的系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2 甚至 Android 等操作系统！与同性质的 VMware 及 Virtual PC 比较，VirtualBox 具有功能全、效率高、体积小、资源占用低等优点。</p>
+</blockquote>
+<p>OMV-Extras 提供了 openmediavault-virtualbox 插件来管理 VirtualBox 虚拟机，首先安装插件。</p>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205217092_25134.jpg">
 
-<p>将共享文件夹 Downloads 作为下载目录。设置 ACL 权限，保证 <code>debian-transmissin</code> 拥有读写权限。</p>
+<p>添加共享文件夹 <code>VM</code> 用于存储虚拟机文件。</p>
 <a id="more"></a>
 
-<img src="/posts/2018-05-04-omv-bt/20180504101858599_170.jpg">
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205316304_10085.jpg">
 
-<p>设置下载保存到 Downloads 。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504101927127_1098.jpg">
+<p>启用 VirtualBox。</p>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205404592_22920.jpg">
 
-<p>启用 BitTorrent 下载。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504101957786_6489.jpg">
+<p>点击 <em>phpVirtualBox</em> 打开 phpVirtualBox 登陆管理页面，使用 <code>admin</code> 账号登录，默认密码为 <code>openmediavault</code>。</p>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205506681_5189.jpg">
 
-<p>启用 web 管理。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504102023641_15106.jpg">
+<p>设置中文显示。</p>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205544291_31540.jpg">
 
-<p>点 <em>Show</em> 打开 Transmission 网页管理界面。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504102102488_27025.jpg">
+<p>新建的虚拟机可以设置成自动或手动启动两种模式。可以在两个地方设置（如下图）。</p>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205614356_2252.jpg">
 
-<p>但这个界面不太友好，下面使用 transmission-web-control 美化默认的 WEB 界面。</p>
-<p>安装 openmediavault-shellinbox 并启用。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504102112723_40471.jpg">
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205626312_258.jpg">
 
-<img src="/posts/2018-05-04-omv-bt/20180504102122600_18372.jpg">
+<p>通过对 VirtualBox 虚拟机网络的配置，可以模拟组建出我们想要的网络环境。VirtualBox 中有四种网络连接方式：</p>
+<ul>
+<li>NAT 网络地址转换</li>
+<li>Bridged Adapter 桥接网卡</li>
+<li>Internal 内部网络</li>
+<li>Host-only Adapter 仅主机适配器</li>
+</ul>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205649704_31150.jpg">
 
-<p>点 <em>Web 客户端</em> 登陆 SSH，再按 <a href="https://github.com/ronggang/transmission-web-control/wiki/Linux-Installation-CN" target="_blank" rel="noopener">wiki</a> 操作即可。</p>
-<img src="/posts/2018-05-04-omv-bt/20180504102133164_20133.jpg">
+<p>这四种连接方式的区别：</p>
+<ul>
+<li>网络地址转换：虚拟机可以访问主机能访问到的所有网络，但是对于主机以及主机网络上的其他机器，虚拟机又是不可见的，甚至主机也访问不到虚拟机。</li>
+<li>桥接网卡：它是通过主机网卡，架设了一座桥，直接连入到网络中了。因此，它使得虚拟机能被分配到与主机同一个网络段中独立的 ip，所有网络功能完全和在网络中的真实机器一样。</li>
+<li>内部网络：虚拟机与外网完全断开，只实现虚拟机于虚拟机之间的内部网络模式。</li>
+<li>仅主机适配器：在主机中模拟出一张专供虚拟机使用的网卡，所有虚拟机都是连接到该网卡上的，我们可以通过设置这张网卡来实现上网及其他很多功能，比如网卡共享、网卡桥接等。</li>
+</ul>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205703120_31981.png">
 
-<p>下面就是美化后的界面，是不是亲切了许多？</p>
-<img src="/posts/2018-05-04-omv-bt/20180504102139525_16516.jpg">
+
+<p><strong>！！！虚拟机网卡连接方式建议设置为桥接网卡，方便局域网管理。</strong></p>
+<p>VirtualBox 提供 VNC 远程管理虚拟机功能，服务器端口设置为 9000 到 9100 之间的固定数字即可。</p>
+<img src="/posts/2018-08-25-omv-virtualbox/20180825205717748_31273.jpg">
       
 
       
@@ -230,7 +245,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">BT下载</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">VirtualBox</a>
         		</li>
       		
 		</ul>
@@ -286,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2018-05-04-omv-bt.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,18 +315,9 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/2018-05-26-omv-cups.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          OpenMediaVault 插件之 CUPS 打印服务
-        
-      </div>
-    </a>
   
-  
-    <a href="/posts/2018-04-29-openmediavault.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用 OpenMediaVault 轻松搭建家用 NAS</div>
+    <a href="/posts/2018-07-25-omv-nextcloud.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OpenMediaVault+Nextcloud 搭建家庭私有云</div>
       <i class="icon-circle-right"></i>
     </a>
   

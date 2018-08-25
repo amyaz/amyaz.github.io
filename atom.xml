@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2018-07-25T09:40:16.175Z</updated>
+  <updated>2018-08-25T13:05:25.599Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenMediaVault 插件之 VirtualBox 虚拟机</title>
+    <link href="https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox.html"/>
+    <id>https://amyaz.gitee.io/posts/2018-08-25-omv-virtualbox.html</id>
+    <published>2018-08-25T13:04:13.000Z</published>
+    <updated>2018-08-25T13:05:25.599Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>VirtualBox 是一款开源虚拟机软件。它不仅具有丰富的特色，而且性能也很优异！它简单易用，可虚拟的系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2 甚至 Android 等操作系统！与同性质的 VMware 及 Virtual PC 比较，VirtualBox 具有功能全、效率高、体积小、资源占用低等优点。</p></blockquote><p>OMV-Extras 提供了 openmediavault-virtualbox 插件来管理 VirtualBox 虚拟机，首先安装插件。</p><img src="/posts/2018-08-25-omv-virtualbox/20180825205217092_25134.jpg"><p>添加共享文件夹 <code>VM</code> 用于存储虚拟机文件。</p><a id="more"></a><img src="/posts/2018-08-25-omv-virtualbox/20180825205316304_10085.jpg"><p>启用 VirtualBox。</p><img src="/posts/2018-08-25-omv-virtualbox/20180825205404592_22920.jpg"><p>点击 <em>phpVirtualBox</em> 打开 phpVirtualBox 登陆管理页面，使用 <code>admin</code> 账号登录，默认密码为 <code>openmediavault</code>。</p><img src="/posts/2018-08-25-omv-virtualbox/20180825205506681_5189.jpg"><p>设置中文显示。</p><img src="/posts/2018-08-25-omv-virtualbox/20180825205544291_31540.jpg"><p>新建的虚拟机可以设置成自动或手动启动两种模式。可以在两个地方设置（如下图）。</p><img src="/posts/2018-08-25-omv-virtualbox/20180825205614356_2252.jpg"><img src="/posts/2018-08-25-omv-virtualbox/20180825205626312_258.jpg"><p>通过对 VirtualBox 虚拟机网络的配置，可以模拟组建出我们想要的网络环境。VirtualBox 中有四种网络连接方式：</p><ul><li>NAT 网络地址转换</li><li>Bridged Adapter 桥接网卡</li><li>Internal 内部网络</li><li>Host-only Adapter 仅主机适配器</li></ul><img src="/posts/2018-08-25-omv-virtualbox/20180825205649704_31150.jpg"><p>这四种连接方式的区别：</p><ul><li>网络地址转换：虚拟机可以访问主机能访问到的所有网络，但是对于主机以及主机网络上的其他机器，虚拟机又是不可见的，甚至主机也访问不到虚拟机。</li><li>桥接网卡：它是通过主机网卡，架设了一座桥，直接连入到网络中了。因此，它使得虚拟机能被分配到与主机同一个网络段中独立的 ip，所有网络功能完全和在网络中的真实机器一样。</li><li>内部网络：虚拟机与外网完全断开，只实现虚拟机于虚拟机之间的内部网络模式。</li><li>仅主机适配器：在主机中模拟出一张专供虚拟机使用的网卡，所有虚拟机都是连接到该网卡上的，我们可以通过设置这张网卡来实现上网及其他很多功能，比如网卡共享、网卡桥接等。</li></ul><img src="/posts/2018-08-25-omv-virtualbox/20180825205703120_31981.png"><p><strong>！！！虚拟机网卡连接方式建议设置为桥接网卡，方便局域网管理。</strong></p><p>VirtualBox 提供 VNC 远程管理虚拟机功能，服务器端口设置为 9000 到 9100 之间的固定数字即可。</p><img src="/posts/2018-08-25-omv-virtualbox/20180825205717748_31273.jpg">]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;VirtualBox 是一款开源虚拟机软件。它不仅具有丰富的特色，而且性能也很优异！它简单易用，可虚拟的系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2 甚至 Android 等操作系统！与同性质的 VMware 及 Virtual PC 比较，VirtualBox 具有功能全、效率高、体积小、资源占用低等优点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;OMV-Extras 提供了 openmediavault-virtualbox 插件来管理 VirtualBox 虚拟机，首先安装插件。&lt;/p&gt;
+&lt;img src=&quot;/posts/2018-08-25-omv-virtualbox/20180825205217092_25134.jpg&quot;&gt;
+
+&lt;p&gt;添加共享文件夹 &lt;code&gt;VM&lt;/code&gt; 用于存储虚拟机文件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OMV插件" scheme="https://amyaz.gitee.io/tags/OMV%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="VirtualBox" scheme="https://amyaz.gitee.io/tags/VirtualBox/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenMediaVault+Nextcloud 搭建家庭私有云</title>
