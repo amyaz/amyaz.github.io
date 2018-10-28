@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2018-10-13T09:25:54.281Z</updated>
+  <updated>2018-10-28T06:49:46.921Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenMediaVault 另类安装法</title>
+    <link href="https://amyaz.gitee.io/posts/2018-10-28-debian-omv.html"/>
+    <id>https://amyaz.gitee.io/posts/2018-10-28-debian-omv.html</id>
+    <published>2018-10-28T06:48:36.000Z</published>
+    <updated>2018-10-28T06:49:46.921Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://amyaz.gitee.io/posts/2018-04-29-openmediavault.html">《使用 OpenMediaVault 轻松搭建家用 NAS》</a> 介绍了使用镜像安装 OMV 的方法，但是这种安装方法会默认安装许多不需要的软件包，略有洁癖的我心里很不舒服。经过一阵折腾，于是就有了在最小化安装 Debian 基础上安装 OMV 的另类安装法。</p><p>OMV 是基于 Debian 的，二者的安装过程基本一致，Debian 9 的安装可以参考<a href="https://amyaz.gitee.io/posts/2018-04-29-openmediavault.html">这篇文章</a>，本文不再赘述，只是在软件选择时注意只选择 <em>SSH server</em> 。</p><img src="/posts/2018-10-28-debian-omv/20181028143729087_19399.png"><p>安装完成后使用 root 账号、密码登陆。</p><a id="more"></a><img src="/posts/2018-10-28-debian-omv/20181028143849288_17886.png"><p>修改 SSH 服务器配置，允许 root 登陆。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/ssh/sshd_config</span><br><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure><img src="/posts/2018-10-28-debian-omv/20181028143912331_9788.png"><p>查看主机 ip 地址。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr show</span><br></pre></td></tr></table></figure><img src="/posts/2018-10-28-debian-omv/20181028143927945_2835.png"><p>局域网内使用 <a href="http://www.mycodes.net/130/681.htm" target="_blank" rel="noopener">PuTTY 中文版</a> 登录 SSH 。</p><img src="/posts/2018-10-28-debian-omv/20181028143942777_13293.png"><img src="/posts/2018-10-28-debian-omv/20181028144005777_24018.png"><p>更改软件源以提高下载速度。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;s/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g&apos; /etc/apt/sources.list</span><br></pre></td></tr></table></figure><p>更新系统。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt -y upgrade</span><br></pre></td></tr></table></figure><p>创建 OMV 4 安装脚本。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano omv4.sh</span><br></pre></td></tr></table></figure><p>参照 OpenMediaVault 论坛文章 <a href="http://forum.openmediavault.org/index.php/Thread/21234-Install-OMV4-on-Debian-9-Stretch/" target="_blank" rel="noopener">《Install OMV4 on Debian 9 (Stretch)》</a>，脚本内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list</span><br><span class="line">deb http://packages.openmediavault.org/public arrakis main</span><br><span class="line"># deb http://downloads.sourceforge.net/project/openmediavault/packages arrakis main</span><br><span class="line">## Uncomment the following line to add software from the proposed repository.</span><br><span class="line"># deb http://packages.openmediavault.org/public arrakis-proposed main</span><br><span class="line"># deb http://downloads.sourceforge.net/project/openmediavault/packages arrakis-proposed main</span><br><span class="line">## This software is not part of OpenMediaVault, but is offered by third-party</span><br><span class="line">## developers as a service to OpenMediaVault users.</span><br><span class="line"># deb http://packages.openmediavault.org/public arrakis partner</span><br><span class="line"># deb http://downloads.sourceforge.net/project/openmediavault/packages arrakis partner</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">export LANG=C.UTF-8</span><br><span class="line">export DEBIAN_FRONTEND=noninteractive</span><br><span class="line">export APT_LISTCHANGES_FRONTEND=none</span><br><span class="line">wget -O &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot; http://packages.openmediavault.org/public/archive.key</span><br><span class="line">apt-key add &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot;</span><br><span class="line">apt-get update</span><br><span class="line">apt-get --yes --auto-remove --show-upgraded \</span><br><span class="line">--allow-downgrades --allow-change-held-packages \</span><br><span class="line">--no-install-recommends \</span><br><span class="line">--option Dpkg::Options::=&quot;--force-confdef&quot; \</span><br><span class="line">--option DPkg::Options::=&quot;--force-confold&quot; \</span><br><span class="line">install postfix openmediavault-keyring openmediavault</span><br><span class="line"></span><br><span class="line"># Initialize the system and database.</span><br><span class="line">omv-initsystem</span><br><span class="line"></span><br><span class="line"># Rebuild configurations.</span><br><span class="line">omv-mkconf interfaces</span><br><span class="line">omv-mkconf issue</span><br><span class="line"></span><br><span class="line"># Display the login information.</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure><p>赋予安装脚本执行权限。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x omv4.sh</span><br></pre></td></tr></table></figure><p>执行安装脚本。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./omv4.sh</span><br></pre></td></tr></table></figure><p>完成后，重启。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure><p>OMV 系统安装好了。</p><p>如果出现</p><blockquote><p>Exception ignored in:.remove at 0x76125420&gt;Traceback (most recent call last): File “/usr/lib/python3.5/weakref.py”, line 117, in removeTypeError: ‘NoneType’ object is not callableException ignored in:.remove at 0x76125420&gt;<br>Traceback (most recent call last):<br>File “/usr/lib/python3.5/weakref.py”, line 117, in remove<br>TypeError: ‘NoneType’ object is not callable</p></blockquote><p>解决办法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /usr/lib/python3.5/weakref.py</span><br></pre></td></tr></table></figure><p><code>def remove(wr, selfref=ref(self)):</code> 修改为 <code>def remove(wr, selfref=ref(self), _atomic_removal=_remove_dead_weakref):</code></p><p><code>_remove_dead_weakref(d, wr.key)</code> 修改为 <code>_atomic_removal(d, wr.key)</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://amyaz.gitee.io/posts/2018-04-29-openmediavault.html&quot;&gt;《使用 OpenMediaVault 轻松搭建家用 NAS》&lt;/a&gt; 介绍了使用镜像安装 OMV 的方法，但是这种安装方法会默认安装许多不需要的软件包，略有洁癖的我心里很不舒服。经过一阵折腾，于是就有了在最小化安装 Debian 基础上安装 OMV 的另类安装法。&lt;/p&gt;
+&lt;p&gt;OMV 是基于 Debian 的，二者的安装过程基本一致，Debian 9 的安装可以参考&lt;a href=&quot;https://amyaz.gitee.io/posts/2018-04-29-openmediavault.html&quot;&gt;这篇文章&lt;/a&gt;，本文不再赘述，只是在软件选择时注意只选择 &lt;em&gt;SSH server&lt;/em&gt; 。&lt;/p&gt;
+&lt;img src=&quot;/posts/2018-10-28-debian-omv/20181028143729087_19399.png&quot;&gt;
+
+&lt;p&gt;安装完成后使用 root 账号、密码登陆。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OpenMediaVault" scheme="https://amyaz.gitee.io/tags/OpenMediaVault/"/>
+    
+      <category term="NAS" scheme="https://amyaz.gitee.io/tags/NAS/"/>
+    
+  </entry>
   
   <entry>
     <title>虚拟机安装体验群晖 DSM 系统</title>
@@ -40,9 +66,9 @@
     </summary>
     
     
-      <category term="VirtualBox" scheme="https://amyaz.gitee.io/tags/VirtualBox/"/>
-    
       <category term="NAS" scheme="https://amyaz.gitee.io/tags/NAS/"/>
+    
+      <category term="VirtualBox" scheme="https://amyaz.gitee.io/tags/VirtualBox/"/>
     
       <category term="群晖" scheme="https://amyaz.gitee.io/tags/%E7%BE%A4%E6%99%96/"/>
     
