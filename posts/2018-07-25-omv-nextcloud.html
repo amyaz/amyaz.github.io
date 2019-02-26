@@ -29,7 +29,9 @@
 <meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171754873_19027.jpg">
 <meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171823480_19994.jpg">
 <meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171900069_13163.jpg">
-<meta property="og:updated_time" content="2018-07-25T09:40:16.175Z">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20190226114111053_22873.jpg">
+<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20190226114123760_8575.jpg">
+<meta property="og:updated_time" content="2019-02-26T03:48:09.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenMediaVault+Nextcloud 搭建家庭私有云">
 <meta name="twitter:description" content="在 OMV 中没有 Nextcloud 插件可用， 前文  已经搭建了网页服务器，稍加改造就可搭建 Nextcloud 私有云服务。 前期准备安装依赖使用 openmediavault-shellinbox 插件登陆 SSH，安装 Nextcloud 服务所需软件。 12apt updateapt install php-gd php-json php-curl php-mbstring php-">
@@ -257,6 +259,27 @@
 
 <p>刷新 Nextcloud 网页，安全及设置警告消除，所有检查通过。</p>
 <img src="/posts/2018-07-25-omv-nextcloud/20180725171900069_13163.jpg">
+
+<h4 id="Nextcloud-15-安全及设置警告"><a href="#Nextcloud-15-安全及设置警告" class="headerlink" title="Nextcloud 15 安全及设置警告"></a>Nextcloud 15 安全及设置警告</h4><p>最近，Nextcloud 升级到了 15 版本，升级后出现新的安全及设置警告。</p>
+<img src="/posts/2018-07-25-omv-nextcloud/20190226114111053_22873.jpg">
+
+<p>1.</p>
+<blockquote>
+<p>PHP 内存限制低于建议值 512MB。</p>
+</blockquote>
+<img src="/posts/2018-07-25-omv-nextcloud/20190226114123760_8575.jpg">
+
+<p>2.</p>
+<blockquote>
+<p>您当前正在运行 PHP 版本 7.0.33-0+deb9u3。我们建议您尽快在您的发行版支持新版本的时候进行升级，以获得来自 PHP 官方的性能和安全的提升。</p>
+</blockquote>
+<p>debian 源最新的只有 PHP7.0，如果你想折腾，可以参考 <a href="https://www.debian.cn/archives/1543" target="_blank" rel="noopener">https://www.debian.cn/archives/1543</a> 。</p>
+<p>3.</p>
+<blockquote>
+<p>数据库中的一些列由于进行长整型转换而缺失。由于在较大的数据表重改变列类型会耗费一些时间，因此程序没有自动对其更改。您可以通过命令行手动执行 “occ db:convert-filecache-bigint” 命令以应用挂起的更改。该操作需要当整个实例变为离线状态后执行。查阅相关文档以获得更多详情。</p>
+</blockquote>
+<p>openmediavault-shellinbox 登陆 SSH，执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /srv/dev-disk-by-label-data/www/</span><br><span class="line">sudo -u amyaz php occ db:convert-filecache-bigint</span><br></pre></td></tr></table></figure>
       
 
       
@@ -381,7 +404,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前期准备"><span class="toc-number">1.</span> <span class="toc-text">前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装依赖"><span class="toc-number">1.1.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库"><span class="toc-number">1.2.</span> <span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-SSL-证书"><span class="toc-number">1.3.</span> <span class="toc-text">创建 SSL 证书</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LEMP-改造"><span class="toc-number">2.</span> <span class="toc-text">LEMP 改造</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-Pool"><span class="toc-number">2.1.</span> <span class="toc-text">修改 Pool</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-Servers"><span class="toc-number">2.2.</span> <span class="toc-text">修改 Servers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nextcloud-安装"><span class="toc-number">3.</span> <span class="toc-text">Nextcloud 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">3.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全及设置警告"><span class="toc-number">3.3.</span> <span class="toc-text">安全及设置警告</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前期准备"><span class="toc-number">1.</span> <span class="toc-text">前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装依赖"><span class="toc-number">1.1.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库"><span class="toc-number">1.2.</span> <span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-SSL-证书"><span class="toc-number">1.3.</span> <span class="toc-text">创建 SSL 证书</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LEMP-改造"><span class="toc-number">2.</span> <span class="toc-text">LEMP 改造</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-Pool"><span class="toc-number">2.1.</span> <span class="toc-text">修改 Pool</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-Servers"><span class="toc-number">2.2.</span> <span class="toc-text">修改 Servers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nextcloud-安装"><span class="toc-number">3.</span> <span class="toc-text">Nextcloud 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">3.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全及设置警告"><span class="toc-number">3.3.</span> <span class="toc-text">安全及设置警告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Nextcloud-15-安全及设置警告"><span class="toc-number">3.3.1.</span> <span class="toc-text">Nextcloud 15 安全及设置警告</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -410,7 +433,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Amyaz
+    		&copy; 2019 Amyaz
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -493,6 +516,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OpenMediaVault</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">EasyNAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">OMV插件</a>
               </li>
              
@@ -501,15 +536,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">EasyNAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OpenMediaVault</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,10 +548,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Nextcloud</a>
               </li>
              
@@ -533,15 +556,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OpenWrt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">软路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
             
             <div class="clearfix"></div>
