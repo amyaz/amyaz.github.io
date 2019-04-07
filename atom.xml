@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2018-11-07T12:50:01.876Z</updated>
+  <updated>2019-04-07T02:21:29.859Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pi 调整 TF 卡大小</title>
+    <link href="https://amyaz.gitee.io/posts/2019-04-07-pi-resize2fs.html"/>
+    <id>https://amyaz.gitee.io/posts/2019-04-07-pi-resize2fs.html</id>
+    <published>2019-04-07T02:19:36.000Z</published>
+    <updated>2019-04-07T02:21:29.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>入手一块 Orange Pi Zero，<del>看重它的性价比</del>（没错，就是穷）。将系统烧录到 TF 卡时，不会使用全部 TF 卡容量，造成浪费。经过一阵搜索，找到调整 TF 卡大小的方法，调大增加使用空间，调小便于保存系统镜像。</p><p><strong><a href="https://www.armbian.com/orange-pi-zero/" target="_blank" rel="noopener">Armbian 系统</a> 会自动扩容全部 TF 卡空间，不需要手动调整。</strong></p><p>将 TF 卡插入电脑，打开 Linux 虚拟机，把 TF 卡添加到 USB 筛选器。（直接把 TF 卡插入 Linux 电脑也可以）在 Linux 终端操作：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l                    //查看所有存储设备，根据大小确定 TF 卡是 /dev/ 开头的哪个，并可看到分区情况</span><br><span class="line">sudo e2fsck -f /dev/sdb2        //整理第二分区，有的系统只有一个分区，就是 sdb1</span><br><span class="line">sudo resize2fs /dev/sdb2 1G    //调整大小，调小加上 Pi 已占用空间大小（这里为 1G，可在 Pi 下用 df -h 查看），调大不用</span><br><span class="line">sudo fdisk /dev/sdb            //实际调整，小心操作！！！</span><br></pre></td></tr></table></figure><p>进入 fdisk 命令操作，调整容量过程是：先删除第二分区，再新建分区为调整后的大小。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Welcome to fdisk (util-linux 2.29.2).</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line">Command (m for help): d</span><br><span class="line">Partition number (1,2, default 2):</span><br><span class="line">Partition 2 has been deleted.</span><br><span class="line"></span><br><span class="line">Command (m for help): n</span><br><span class="line">Partition type</span><br><span class="line">   p   primary (1 primary, 0 extended, 3 free)</span><br><span class="line">   e   extended (container for logical partitions)</span><br><span class="line">Select (default p):</span><br><span class="line">Using default response p.</span><br><span class="line">Partition number (2-4, default 2):</span><br><span class="line">First sector (1026048-31116287, default 1026048):</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (1026048-31116287, default 31116287): +1G        //调小 +1G，调大留空</span><br><span class="line">Created a new partition 2 of type &apos;Linux&apos; and of size 3 GiB.</span><br><span class="line">Partition #2 contains a ext4 signature.</span><br><span class="line">Do you want to remove the signature? [Y]es/[N]o: n        //一定要填 n，不移除</span><br><span class="line"></span><br><span class="line">Command (m for help): w</span><br><span class="line">The partition table has been altered.</span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure><p>操作完成，如果调小要保存系统镜像，使用 <a href="http://sourceforge.net/projects/win32diskimager/" target="_blank" rel="noopener">Win32 Disk Imager</a> 读取 TF 卡，记得勾选<em>仅读取已分配分区</em>。</p><p>将保存的系统镜像烧录到新的 TF 卡，可以使用上面的步骤恢复容量。</p><p>当然也可直接在 Pi 上进行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l        //TF 卡在 Pi 上识别为 /dev/mmcblk0</span><br><span class="line">sudo fdisk /dev/mmcblk0</span><br></pre></td></tr></table></figure><p>按上面的操作先删除第二分区再新建，最后会有 <code>WARNING: Re-reading the partition table failed with error 16</code> 这样的提示，没关系，输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure><p>重启，输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resize2fs /dev/mmcblk0p2</span><br></pre></td></tr></table></figure><p>使用 <code>df -h</code> 查看，容量已经调整。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;入手一块 Orange Pi Zero，&lt;del&gt;看重它的性价比&lt;/del&gt;（没错，就是穷）。将系统烧录到 TF 卡时，不会使用全部 TF 卡容量，造成浪费。经过一阵搜索，找到调整 TF 卡大小的方法，调大增加使用空间，调小便于保存系统镜像。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="香橙派" scheme="https://amyaz.gitee.io/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
+    
+      <category term="扩容" scheme="https://amyaz.gitee.io/tags/%E6%89%A9%E5%AE%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>EesyNAS | 使存储更简单</title>
