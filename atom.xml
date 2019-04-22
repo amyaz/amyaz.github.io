@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amyaz.gitee.io/"/>
-  <updated>2019-04-07T02:21:29.859Z</updated>
+  <updated>2019-04-22T09:27:30.185Z</updated>
   <id>https://amyaz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pi+motion 打造实时视频监控</title>
+    <link href="https://amyaz.gitee.io/posts/2019-04-22-pi-motion.html"/>
+    <id>https://amyaz.gitee.io/posts/2019-04-22-pi-motion.html</id>
+    <published>2019-04-22T09:26:54.000Z</published>
+    <updated>2019-04-22T09:27:30.185Z</updated>
+    
+    <content type="html"><![CDATA[<p>要打造实时视频监控，需要：</p><ul><li>Pi 一个</li><li>USB免驱摄像头</li></ul><h2 id="检查摄像头"><a href="#检查摄像头" class="headerlink" title="检查摄像头"></a>检查摄像头</h2><p>插上摄像头，root 登陆 Pi。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/video*</span><br></pre></td></tr></table></figure><p>显示 <code>/dev/video0</code> 即为摄像头的设备名。</p><h2 id="安装配置-motion"><a href="#安装配置-motion" class="headerlink" title="安装配置 motion"></a>安装配置 motion</h2><p>以 Armbian 为例：</p><a id="more"></a><p>安装 motion：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install motion</span><br></pre></td></tr></table></figure><p>配置 motion daemon 守护进程：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/default/motion</span><br></pre></td></tr></table></figure><p>修改 <code>start_motion_daemon=no</code> 为 <code>start_motion_daemon=yes</code>。</p><p>修改 motion 的配置文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/motion/motion.conf</span><br></pre></td></tr></table></figure><p>将 <code>daemon off</code> 修改为 <code>daemon on</code>；<code>stream_localhost on</code> 修改为 <code>stream_localhost off</code>，即关闭 localhost 限制。</p><p>启动 motion 服务，并设置开机启动：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service motion start</span><br><span class="line">update-rc.d motion defaults</span><br></pre></td></tr></table></figure><p>打开浏览器，输入 http://树莓派IP:8081 即可查看拍到的图像。</p><p>注意：<br>Chrome 或者 Firefox 内核的浏览器可以正常访问；Microsoft Edge 和 IE 内核的浏览器不显示图像，而是提示下载。</p><h2 id="远程监控"><a href="#远程监控" class="headerlink" title="远程监控"></a>远程监控</h2><p>移动大内网，无法获取公网 ip，使用 <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp 内网穿透</a> 连接 Pi 实现远程监控。</p><p>由于手头没有公网服务器，只好使用 <a href="https://www.chuantou.org/" target="_blank" rel="noopener">免费FRP穿透服务</a> 。</p><h3 id="安装-frpc"><a href="#安装-frpc" class="headerlink" title="安装 frpc"></a>安装 frpc</h3><p>根据 <a href="https://www.chuantou.org/frp-page" target="_blank" rel="noopener">chuantou.org frp 配置信息</a> ,使用 Frp V0.26 版本。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.26.0/frp_0.26.0_linux_arm.tar.gz</span><br><span class="line">tar -zxvf frp_0.26.0_linux_arm.tar.gz</span><br><span class="line">mv frp_0.26.0_linux_arm /opt/frp</span><br><span class="line">nano /opt/frp/frpc.ini</span><br></pre></td></tr></table></figure><p>修改配置如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">#server_addr一定要写域名形式，不要直接写IP地址</span><br><span class="line">server_addr = frp1.chuantou.org</span><br><span class="line">server_port = 7000</span><br><span class="line">privilege_token = www.xxorg.com</span><br><span class="line"># 标注你的代理名字，随便选择一个跟别人不一样即可</span><br><span class="line">user = amyaz</span><br><span class="line"></span><br><span class="line">[xxorg]</span><br><span class="line">type = http</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 8081</span><br><span class="line"># 选择一个可用的子域名，你的访问地址将会是http://xxorg.frp1.chuantou.org</span><br><span class="line">subdomain = amyaz</span><br><span class="line"></span><br><span class="line">[tcp3389]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line"># TCP/UDP穿透开放端口范围50000-60000，为避免连接失败，记得修改</span><br><span class="line">remote_port = 53389</span><br></pre></td></tr></table></figure><p>登录测试配置成功与否：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/frp/frpc -c /opt/frp/frpc.ini</span><br></pre></td></tr></table></figure><p>没有出现 <code>[E]</code> （错误）就表示成功了。</p><h3 id="frpc-开机启动"><a href="#frpc-开机启动" class="headerlink" title="frpc 开机启动"></a>frpc 开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/rc.local</span><br></pre></td></tr></table></figure><p>在 <code>exit 0</code>上一行加入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/frp/frpc -c /opt/frp/frpc.ini</span><br></pre></td></tr></table></figure><h3 id="motion-安全"><a href="#motion-安全" class="headerlink" title="motion 安全"></a>motion 安全</h3><p>使用密码访问 motion，保护隐私：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/motion/motion.conf</span><br></pre></td></tr></table></figure><p>将 <code>stream_auth_method 0</code> 改为 <code>stream_auth_method 1</code>；去掉 <code>; stream_authentication username:password</code> 前的 <code>;</code>，并将 <code>username:password</code> 改为登陆账号密码。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;要打造实时视频监控，需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pi 一个&lt;/li&gt;
+&lt;li&gt;USB免驱摄像头&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;检查摄像头&quot;&gt;&lt;a href=&quot;#检查摄像头&quot; class=&quot;headerlink&quot; title=&quot;检查摄像头&quot;&gt;&lt;/a&gt;检查摄像头&lt;/h2&gt;&lt;p&gt;插上摄像头，root 登陆 Pi。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ls /dev/video*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;显示 &lt;code&gt;/dev/video0&lt;/code&gt; 即为摄像头的设备名。&lt;/p&gt;
+&lt;h2 id=&quot;安装配置-motion&quot;&gt;&lt;a href=&quot;#安装配置-motion&quot; class=&quot;headerlink&quot; title=&quot;安装配置 motion&quot;&gt;&lt;/a&gt;安装配置 motion&lt;/h2&gt;&lt;p&gt;以 Armbian 为例：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="香橙派" scheme="https://amyaz.gitee.io/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
+    
+      <category term="motion" scheme="https://amyaz.gitee.io/tags/motion/"/>
+    
+      <category term="frp" scheme="https://amyaz.gitee.io/tags/frp/"/>
+    
+  </entry>
   
   <entry>
     <title>Pi 调整 TF 卡大小</title>

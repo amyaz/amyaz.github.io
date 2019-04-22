@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://amyaz.gitee.io">
-  <title>Tag: MySQL | Amyaz的博客</title>
+  <title>Pi+motion 打造实时视频监控 | Amyaz的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个爱折腾的法本毕业生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Amyaz的博客">
-<meta property="og:url" content="https://amyaz.gitee.io/tags/MySQL/index.html">
+  <meta name="description" content="要打造实时视频监控，需要：  Pi 一个 USB免驱摄像头  检查摄像头插上摄像头，root 登陆 Pi。 1ls /dev/video*  显示 /dev/video0 即为摄像头的设备名。 安装配置 motion以 Armbian 为例：">
+<meta name="keywords" content="香橙派,motion,frp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pi+motion 打造实时视频监控">
+<meta property="og:url" content="https://amyaz.gitee.io/posts/2019-04-22-pi-motion.html">
 <meta property="og:site_name" content="Amyaz的博客">
-<meta property="og:description" content="一个爱折腾的法本毕业生">
+<meta property="og:description" content="要打造实时视频监控，需要：  Pi 一个 USB免驱摄像头  检查摄像头插上摄像头，root 登陆 Pi。 1ls /dev/video*  显示 /dev/video0 即为摄像头的设备名。 安装配置 motion以 Armbian 为例：">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-22T09:27:30.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Amyaz的博客">
-<meta name="twitter:description" content="一个爱折腾的法本毕业生">
+<meta name="twitter:title" content="Pi+motion 打造实时视频监控">
+<meta name="twitter:description" content="要打造实时视频监控，需要：  Pi 一个 USB免驱摄像头  检查摄像头插上摄像头，root 登陆 Pi。 1ls /dev/video*  显示 /dev/video0 即为摄像头的设备名。 安装配置 motion以 Armbian 为例：">
   
     <link rel="alternative" href="/atom.xml" title="Amyaz的博客" type="application/atom+xml">
   
@@ -149,68 +151,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-pi-motion" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/2018-07-23-omv-lemp.html" class="archive-article-date">
-  	<time datetime="2018-07-23T06:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/2018-07-23-omv-lemp.html">OpenMediaVault 插件之 Nginx、MySQL 搭建网页服务器</a>
+    <h1 class="article-title" itemprop="name">
+      Pi+motion 打造实时视频监控
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/posts/2019-04-22-pi-motion.html" class="archive-article-date">
+  	<time datetime="2019-04-22T09:26:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>要打造实时视频监控，需要：</p>
+<ul>
+<li>Pi 一个</li>
+<li>USB免驱摄像头</li>
+</ul>
+<h2 id="检查摄像头"><a href="#检查摄像头" class="headerlink" title="检查摄像头"></a>检查摄像头</h2><p>插上摄像头，root 登陆 Pi。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/video*</span><br></pre></td></tr></table></figure>
+
+<p>显示 <code>/dev/video0</code> 即为摄像头的设备名。</p>
+<h2 id="安装配置-motion"><a href="#安装配置-motion" class="headerlink" title="安装配置 motion"></a>安装配置 motion</h2><p>以 Armbian 为例：</p>
+<a id="more"></a>
+
+<p>安装 motion：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install motion</span><br></pre></td></tr></table></figure>
+
+<p>配置 motion daemon 守护进程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/default/motion</span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>start_motion_daemon=no</code> 为 <code>start_motion_daemon=yes</code>。</p>
+<p>修改 motion 的配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/motion/motion.conf</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>daemon off</code> 修改为 <code>daemon on</code>；
+<code>stream_localhost on</code> 修改为 <code>stream_localhost off</code>，即关闭 localhost 限制。</p>
+<p>启动 motion 服务，并设置开机启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service motion start</span><br><span class="line">update-rc.d motion defaults</span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器，输入 http://树莓派IP:8081 即可查看拍到的图像。</p>
+<p>注意：<br>Chrome 或者 Firefox 内核的浏览器可以正常访问；Microsoft Edge 和 IE 内核的浏览器不显示图像，而是提示下载。</p>
+<h2 id="远程监控"><a href="#远程监控" class="headerlink" title="远程监控"></a>远程监控</h2><p>移动大内网，无法获取公网 ip，使用 <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp 内网穿透</a> 连接 Pi 实现远程监控。</p>
+<p>由于手头没有公网服务器，只好使用 <a href="https://www.chuantou.org/" target="_blank" rel="noopener">免费FRP穿透服务</a> 。</p>
+<h3 id="安装-frpc"><a href="#安装-frpc" class="headerlink" title="安装 frpc"></a>安装 frpc</h3><p>根据 <a href="https://www.chuantou.org/frp-page" target="_blank" rel="noopener">chuantou.org frp 配置信息</a> ,使用 Frp V0.26 版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.26.0/frp_0.26.0_linux_arm.tar.gz</span><br><span class="line">tar -zxvf frp_0.26.0_linux_arm.tar.gz</span><br><span class="line">mv frp_0.26.0_linux_arm /opt/frp</span><br><span class="line">nano /opt/frp/frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>修改配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">#server_addr一定要写域名形式，不要直接写IP地址</span><br><span class="line">server_addr = frp1.chuantou.org</span><br><span class="line">server_port = 7000</span><br><span class="line">privilege_token = www.xxorg.com</span><br><span class="line"># 标注你的代理名字，随便选择一个跟别人不一样即可</span><br><span class="line">user = amyaz</span><br><span class="line"></span><br><span class="line">[xxorg]</span><br><span class="line">type = http</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 8081</span><br><span class="line"># 选择一个可用的子域名，你的访问地址将会是http://xxorg.frp1.chuantou.org</span><br><span class="line">subdomain = amyaz</span><br><span class="line"></span><br><span class="line">[tcp3389]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line"># TCP/UDP穿透开放端口范围50000-60000，为避免连接失败，记得修改</span><br><span class="line">remote_port = 53389</span><br></pre></td></tr></table></figure>
+
+<p>登录测试配置成功与否：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/frp/frpc -c /opt/frp/frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>没有出现 <code>[E]</code> （错误）就表示成功了。</p>
+<h3 id="frpc-开机启动"><a href="#frpc-开机启动" class="headerlink" title="frpc 开机启动"></a>frpc 开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>exit 0</code>上一行加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/frp/frpc -c /opt/frp/frpc.ini</span><br></pre></td></tr></table></figure>
+
+<h3 id="motion-安全"><a href="#motion-安全" class="headerlink" title="motion 安全"></a>motion 安全</h3><p>使用密码访问 motion，保护隐私：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/motion/motion.conf</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>stream_auth_method 0</code> 改为 <code>stream_auth_method 1</code>；
+去掉 <code>; stream_authentication username:password</code> 前的 <code>;</code>，并将 <code>username:password</code> 改为登陆账号密码。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">OMV插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">香橙派</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">motion</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">frp</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2019-04-22-pi-motion.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/posts/2019-04-07-pi-resize2fs.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pi 调整 TF 卡大小</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#检查摄像头"><span class="toc-number">1.</span> <span class="toc-text">检查摄像头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装配置-motion"><span class="toc-number">2.</span> <span class="toc-text">安装配置 motion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程监控"><span class="toc-number">3.</span> <span class="toc-text">远程监控</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-frpc"><span class="toc-number">3.1.</span> <span class="toc-text">安装 frpc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frpc-开机启动"><span class="toc-number">3.2.</span> <span class="toc-text">frpc 开机启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#motion-安全"><span class="toc-number">3.3.</span> <span class="toc-text">motion 安全</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -233,9 +384,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
