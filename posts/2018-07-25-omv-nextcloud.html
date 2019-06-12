@@ -5,37 +5,37 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://amyaz.gitee.io">
+  <link rel="dns-prefetch" href="https://amyaz.github.io">
   <title>OpenMediaVault+Nextcloud 搭建家庭私有云 | Amyaz的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 OMV 中没有 Nextcloud 插件可用， 前文  已经搭建了网页服务器，稍加改造就可搭建 Nextcloud 私有云服务。 前期准备安装依赖使用 openmediavault-shellinbox 插件登陆 SSH，安装 Nextcloud 服务所需软件。 12apt updateapt install php-gd php-json php-curl php-mbstring php-">
 <meta name="keywords" content="OMV插件,Nextcloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenMediaVault+Nextcloud 搭建家庭私有云">
-<meta property="og:url" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud.html">
+<meta property="og:url" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud.html">
 <meta property="og:site_name" content="Amyaz的博客">
 <meta property="og:description" content="在 OMV 中没有 Nextcloud 插件可用， 前文  已经搭建了网页服务器，稍加改造就可搭建 Nextcloud 私有云服务。 前期准备安装依赖使用 openmediavault-shellinbox 插件登陆 SSH，安装 Nextcloud 服务所需软件。 12apt updateapt install php-gd php-json php-curl php-mbstring php-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171057802_28784.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171138240_1862.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171201126_15454.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171216629_8298.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171512187_31882.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171534697_8017.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171604734_30161.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171637921_13667.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171706516_22731.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171733165_1546.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171754873_19027.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171823480_19994.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171900069_13163.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20190226114111053_22873.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20190226114123760_8575.jpg">
-<meta property="og:updated_time" content="2019-02-26T03:48:09.982Z">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171057802_28784.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171138240_1862.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171201126_15454.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171216629_8298.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171512187_31882.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171534697_8017.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171604734_30161.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171637921_13667.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171706516_22731.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171733165_1546.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171754873_19027.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171823480_19994.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171900069_13163.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20190226114111053_22873.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20190226114123760_8575.jpg">
+<meta property="og:updated_time" content="2019-06-12T05:56:33.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenMediaVault+Nextcloud 搭建家庭私有云">
 <meta name="twitter:description" content="在 OMV 中没有 Nextcloud 插件可用， 前文  已经搭建了网页服务器，稍加改造就可搭建 Nextcloud 私有云服务。 前期准备安装依赖使用 openmediavault-shellinbox 插件登陆 SSH，安装 Nextcloud 服务所需软件。 12apt updateapt install php-gd php-json php-curl php-mbstring php-">
-<meta name="twitter:image" content="https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud/20180725171057802_28784.jpg">
+<meta name="twitter:image" content="https://amyaz.github.io/posts/2018-07-25-omv-nextcloud/20180725171057802_28784.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Amyaz的博客" type="application/atom+xml">
   
@@ -98,7 +98,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -137,7 +137,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -187,7 +187,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 OMV 中没有 Nextcloud 插件可用，<a href="https://amyaz.gitee.io/posts/2018-07-23-omv-lemp.html"> 前文 </a> 已经搭建了网页服务器，稍加改造就可搭建 Nextcloud 私有云服务。</p>
+        <p>在 OMV 中没有 Nextcloud 插件可用，<a href="https://amyaz.github.io/posts/2018-07-23-omv-lemp.html"> 前文 </a> 已经搭建了网页服务器，稍加改造就可搭建 Nextcloud 私有云服务。</p>
 <h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>使用 openmediavault-shellinbox 插件登陆 SSH，安装 Nextcloud 服务所需软件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install php-gd php-json php-curl php-mbstring php-intl php-mcrypt php-imagick php-xml php-zip</span><br></pre></td></tr></table></figure>
 
@@ -352,7 +352,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2018-07-25-omv-nextcloud.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.github.io/posts/2018-07-25-omv-nextcloud.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -532,15 +532,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Nextcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,11 +544,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">香橙派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,19 +576,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OpenWrt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">软路由</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
             
             <div class="clearfix"></div>
@@ -632,7 +632,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://amyaz.gitee.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
+              <a href="https://amyaz.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
             </li>
           
         </ul>

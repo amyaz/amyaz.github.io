@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://amyaz.gitee.io">
+  <link rel="dns-prefetch" href="https://amyaz.github.io">
   <title>EesyNAS | 使存储更简单 | Amyaz的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="EasyNAS是一个适用于家庭及小型办公环境的存储管理系统。它使用Opensuse的文件系统BTRFS：具有稳定，高性能，高可用和其他你不常见的特性。 EasyNAS的先进特性包括：支持压缩的文件系统，快照，写复制，实时增加或减少存储空间，均衡磁盘负载，在线文件系统检查。并且支持多种操作系统的网络协议：CIFS, NFS, AFP, FTP, HTTP, SCP, DLNA, TFTP   我已制">
 <meta name="keywords" content="NAS,EasyNAS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EesyNAS | 使存储更简单">
-<meta property="og:url" content="https://amyaz.gitee.io/posts/2018-11-07-easynas.html">
+<meta property="og:url" content="https://amyaz.github.io/posts/2018-11-07-easynas.html">
 <meta property="og:site_name" content="Amyaz的博客">
 <meta property="og:description" content="EasyNAS是一个适用于家庭及小型办公环境的存储管理系统。它使用Opensuse的文件系统BTRFS：具有稳定，高性能，高可用和其他你不常见的特性。 EasyNAS的先进特性包括：支持压缩的文件系统，快照，写复制，实时增加或减少存储空间，均衡磁盘负载，在线文件系统检查。并且支持多种操作系统的网络协议：CIFS, NFS, AFP, FTP, HTTP, SCP, DLNA, TFTP   我已制">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-11-07-easynas/easynas.jpg">
-<meta property="og:updated_time" content="2018-11-07T12:50:01.876Z">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-11-07-easynas/easynas.jpg">
+<meta property="og:updated_time" content="2019-06-12T05:49:44.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EesyNAS | 使存储更简单">
 <meta name="twitter:description" content="EasyNAS是一个适用于家庭及小型办公环境的存储管理系统。它使用Opensuse的文件系统BTRFS：具有稳定，高性能，高可用和其他你不常见的特性。 EasyNAS的先进特性包括：支持压缩的文件系统，快照，写复制，实时增加或减少存储空间，均衡磁盘负载，在线文件系统检查。并且支持多种操作系统的网络协议：CIFS, NFS, AFP, FTP, HTTP, SCP, DLNA, TFTP   我已制">
-<meta name="twitter:image" content="https://amyaz.gitee.io/posts/2018-11-07-easynas/easynas.jpg">
+<meta name="twitter:image" content="https://amyaz.github.io/posts/2018-11-07-easynas/easynas.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Amyaz的博客" type="application/atom+xml">
   
@@ -84,7 +84,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -123,7 +123,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -181,12 +181,12 @@
 <ol>
 <li><a href="http://www.easynas.org/download/" target="_blank" rel="noopener">下载安装 EasyNAS</a>，更新 firmware 到最新版。</li>
 <li>打开 WebGUI，启用 SSH，用你喜欢的 SSH 工具连接到 EasyNAS。</li>
-<li>安装 git，并 clone 本项目：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper ref</span><br><span class="line">sudo zypper in git ca-certificates</span><br><span class="line">git clone https://gitee.com/amyaz/easynas.git</span><br></pre></td></tr></table></figure>
+<li>安装 git，并 clone 本项目：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper ref</span><br><span class="line">sudo zypper in git ca-certificates</span><br><span class="line">git clone https://github.com/amyaz/EasyNAS.git</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <p>4.安装中文包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp easynas/easynas/lang/ /easynas/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp EasyNAS/easynas/lang/ /easynas/</span><br></pre></td></tr></table></figure>
 
 <p>在 WebGUI 中选择 <code>Chinese Simplified</code>。</p>
 
@@ -262,7 +262,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2018-11-07-easynas.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.github.io/posts/2018-11-07-easynas.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -442,15 +442,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Nextcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,11 +454,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">香橙派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,19 +486,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OpenWrt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">软路由</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
             
             <div class="clearfix"></div>
@@ -542,7 +542,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://amyaz.gitee.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
+              <a href="https://amyaz.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
             </li>
           
         </ul>

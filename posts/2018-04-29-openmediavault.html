@@ -5,49 +5,49 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://amyaz.gitee.io">
+  <link rel="dns-prefetch" href="https://amyaz.github.io">
   <title>使用 OpenMediaVault 轻松搭建家用 NAS | Amyaz的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="OpenMediaVault （以下简称 OMV）是一个基于 Debian 的专用 Linux 发行版，用于构建网络连接存储（NAS）系统。 它提供了一个易于使用的基于 Web 的界面，多语言支持，卷管理，监控和插件系统，以通过 LDAP，Bittorrent 和 iSCSI 功能进行扩展。  下面介绍如何安装配置 OMV，方便快捷地搭建家用 NAS。 安装硬件准备 电脑主机一台，新购置的最好，">
 <meta name="keywords" content="OpenMediaVault,NAS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 OpenMediaVault 轻松搭建家用 NAS">
-<meta property="og:url" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault.html">
+<meta property="og:url" content="https://amyaz.github.io/posts/2018-04-29-openmediavault.html">
 <meta property="og:site_name" content="Amyaz的博客">
 <meta property="og:description" content="OpenMediaVault （以下简称 OMV）是一个基于 Debian 的专用 Linux 发行版，用于构建网络连接存储（NAS）系统。 它提供了一个易于使用的基于 Web 的界面，多语言支持，卷管理，监控和插件系统，以通过 LDAP，Bittorrent 和 iSCSI 功能进行扩展。  下面介绍如何安装配置 OMV，方便快捷地搭建家用 NAS。 安装硬件准备 电脑主机一台，新购置的最好，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429211955392_7825.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212010066_7005.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212029675_23769.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212052566_6098.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212110330_3367.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212128618_24889.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212147536_28351.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212159973_6850.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212218485_24126.png">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212244839_23987.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212258755_2990.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212308688_9921.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212320475_20129.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212339412_13970.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212548408_829.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212605284_32674.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212622911_13724.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212657603_19868.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212725297_31241.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212735308_29906.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212754978_3823.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212814027_21099.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212836380_6565.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429212847029_725.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429213137443_17143.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429213213772_20483.jpg">
-<meta property="og:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429213238788_21651.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429211955392_7825.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212010066_7005.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212029675_23769.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212052566_6098.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212110330_3367.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212128618_24889.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212147536_28351.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212159973_6850.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212218485_24126.png">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212244839_23987.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212258755_2990.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212308688_9921.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212320475_20129.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212339412_13970.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212548408_829.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212605284_32674.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212622911_13724.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212657603_19868.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212725297_31241.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212735308_29906.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212754978_3823.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212814027_21099.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212836380_6565.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429212847029_725.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429213137443_17143.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429213213772_20483.jpg">
+<meta property="og:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429213238788_21651.jpg">
 <meta property="og:updated_time" content="2018-04-29T13:44:34.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 OpenMediaVault 轻松搭建家用 NAS">
 <meta name="twitter:description" content="OpenMediaVault （以下简称 OMV）是一个基于 Debian 的专用 Linux 发行版，用于构建网络连接存储（NAS）系统。 它提供了一个易于使用的基于 Web 的界面，多语言支持，卷管理，监控和插件系统，以通过 LDAP，Bittorrent 和 iSCSI 功能进行扩展。  下面介绍如何安装配置 OMV，方便快捷地搭建家用 NAS。 安装硬件准备 电脑主机一台，新购置的最好，">
-<meta name="twitter:image" content="https://amyaz.gitee.io/posts/2018-04-29-openmediavault/20180429211955392_7825.png">
+<meta name="twitter:image" content="https://amyaz.github.io/posts/2018-04-29-openmediavault/20180429211955392_7825.png">
   
     <link rel="alternative" href="/atom.xml" title="Amyaz的博客" type="application/atom+xml">
   
@@ -110,7 +110,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -149,7 +149,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -377,7 +377,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2018-04-29-openmediavault.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.github.io/posts/2018-04-29-openmediavault.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -557,15 +557,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Nextcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +569,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">香橙派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,19 +601,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OpenWrt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">软路由</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
             
             <div class="clearfix"></div>
@@ -657,7 +657,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://amyaz.gitee.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
+              <a href="https://amyaz.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
             </li>
           
         </ul>

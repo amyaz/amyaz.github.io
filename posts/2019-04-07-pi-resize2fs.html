@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://amyaz.gitee.io">
+  <link rel="dns-prefetch" href="https://amyaz.github.io">
   <title>Pi 调整 TF 卡大小 | Amyaz的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="入手一块 Orange Pi Zero，看重它的性价比（没错，就是穷）。将系统烧录到 TF 卡时，不会使用全部 TF 卡容量，造成浪费。经过一阵搜索，找到调整 TF 卡大小的方法，调大增加使用空间，调小便于保存系统镜像。 Armbian 系统 会自动扩容全部 TF 卡空间，不需要手动调整。 将 TF 卡插入电脑，打开 Linux 虚拟机，把 TF 卡添加到 USB 筛选器。（直接把 TF 卡插入">
 <meta name="keywords" content="香橙派,扩容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pi 调整 TF 卡大小">
-<meta property="og:url" content="https://amyaz.gitee.io/posts/2019-04-07-pi-resize2fs.html">
+<meta property="og:url" content="https://amyaz.github.io/posts/2019-04-07-pi-resize2fs.html">
 <meta property="og:site_name" content="Amyaz的博客">
 <meta property="og:description" content="入手一块 Orange Pi Zero，看重它的性价比（没错，就是穷）。将系统烧录到 TF 卡时，不会使用全部 TF 卡容量，造成浪费。经过一阵搜索，找到调整 TF 卡大小的方法，调大增加使用空间，调小便于保存系统镜像。 Armbian 系统 会自动扩容全部 TF 卡空间，不需要手动调整。 将 TF 卡插入电脑，打开 Linux 虚拟机，把 TF 卡添加到 USB 筛选器。（直接把 TF 卡插入">
 <meta property="og:locale" content="zh-CN">
@@ -82,7 +82,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -121,7 +121,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://gitee.com/amyaz" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/amyaz" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -264,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.gitee.io/posts/2019-04-07-pi-resize2fs.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amyaz.github.io/posts/2019-04-07-pi-resize2fs.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -444,15 +444,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Nextcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,11 +456,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+                <a href="javascript:void(0)" class="js-tag color5">BT下载</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">香橙派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux打印</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">VirtualBox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,19 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">扩容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OpenWrt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">软路由</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">群晖</a>
               </li>
             
             <div class="clearfix"></div>
@@ -544,7 +544,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://amyaz.gitee.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
+              <a href="https://amyaz.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Amyaz的博客</a>
             </li>
           
         </ul>
